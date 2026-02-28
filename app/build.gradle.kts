@@ -98,4 +98,9 @@ dependencies {
 
     // If using the ViewModel add-on library
     implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+
+    //ktor
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.android)
+    implementation(libs.ktor.client.content.negotiation)
 }

@@ -1,0 +1,15 @@
+query company {
+    company {
+        name
+        ceo
+        employees
+        founded
+        founder
+        links {
+            elon_twitter
+            flickr
+            twitter
+            website
+        }
+    }
+}
