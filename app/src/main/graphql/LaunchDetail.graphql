@@ -1,4 +1,4 @@
-query launch_detail($launchId: ID!) {
+query LaunchDetail($launchId: ID!) {
     launch(id: $launchId) {
         mission_name
         launch_date_utc

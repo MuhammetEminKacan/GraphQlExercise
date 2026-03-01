@@ -1,4 +1,4 @@
-query company {
+query Company {
     company {
         name
         ceo

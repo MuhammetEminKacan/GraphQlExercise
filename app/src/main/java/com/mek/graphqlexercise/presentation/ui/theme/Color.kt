@@ -1,4 +1,4 @@
-package com.mek.graphqlexercise.ui.theme
+package com.mek.graphqlexercise.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
