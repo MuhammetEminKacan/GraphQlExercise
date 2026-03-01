@@ -29,12 +29,15 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.mek.graphqlexercise.domain.model.Launch
+import com.mek.graphqlexercise.presentation.navigation.LaunchDetail
+import com.mek.graphqlexercise.presentation.navigation.Navigator
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 @Composable
 fun LaunchListScreen(
+    navigator: Navigator,
     viewModel: LaunchListViewModel = hiltViewModel()
 ) {
 
@@ -44,13 +47,16 @@ fun LaunchListScreen(
         viewModel.onIntent(LaunchListIntent.LoadLaunches)
     }
 
+
     when {
         state.isLoading -> CircularProgressIndicator()
         state.error != null -> Text(text = state.error!!)
         else -> {
             LazyColumn {
                 items(state.launches) { launch ->
-                    LaunchItem(launch)
+                    LaunchItem(launch) { id ->
+                        navigator.navigate(LaunchDetail(launchId = id))
+                    }
                 }
             }
         }

@@ -1,6 +1,8 @@
 package com.mek.graphqlexercise.data.mapper
 
+import com.mek.graphqlexercise.CompanyQuery
 import com.mek.graphqlexercise.LaunchesPastQuery
+import com.mek.graphqlexercise.domain.model.Company
 import com.mek.graphqlexercise.domain.model.Launch
 
 fun LaunchesPastQuery.LaunchesPast.toDomain(): Launch {
@@ -15,5 +17,19 @@ fun LaunchesPastQuery.LaunchesPast.toDomain(): Launch {
         missionName = mission_name.orEmpty(),
         launchDate = launch_date_utc.toString(),
         imageUrl = imageUrl
+    )
+}
+
+fun CompanyQuery.Company.toDomain(): Company {
+    return Company(
+        name = name.orEmpty(),
+        ceo = ceo.orEmpty(),
+        employees = employees ?: 0,
+        founded = founded ?: 0,
+        founder = founder.orEmpty(),
+        elonTwitter = links?.elon_twitter,
+        flickr = links?.flickr,
+        twitter = links?.twitter,
+        website = links?.website
     )
 }
